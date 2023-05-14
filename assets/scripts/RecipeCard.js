@@ -18,7 +18,7 @@ class RecipeCard extends HTMLElement {
     // A3. DONE - Create a style element - This will hold all of the styles for the Web Component
     // Create some CSS to apply to the shadow dom
     const style = document.createElement('style');
-    console.log(style.isConnected);
+    //console.log(style.isConnected);
     
     // A4. DONE - Insert all of the styles from cardTemplate.html into the <style> element you just made
 
@@ -105,7 +105,7 @@ class RecipeCard extends HTMLElement {
     //this.shadow.append(style, articleElement); //similar?
     shadowOpen.appendChild(style);
     shadowOpen.appendChild(articleElement);
-    console.log(style.isConnected);
+    //console.log(style.isConnected);
   }
 
   /**
@@ -135,8 +135,8 @@ class RecipeCard extends HTMLElement {
     if (!data) return;
 
     // A6. TODO - Select the <article> we added to the Shadow DOM in the constructor
-    console.log('want to add this data:');
-    console.log(data);
+    //console.log('want to add this data:');
+    //console.log(data);
 
     const articleSelected = this.shadowRoot.querySelector('article');
 
