@@ -29,8 +29,6 @@ function getRecipesFromStorage() {
   const recipesButStringArray = localStorage.getItem('recipes');
   const recipes = JSON.parse(recipesButStringArray);
 
-  console.log(recipes);
-
   return recipes;
 }
 
@@ -50,19 +48,15 @@ function addRecipesToDocument(recipes) {
 
   const mainReference = document.querySelector('main');
 
-  //for (let i = 0; i < recipes.length; i++) {
-  //  let newRec = document.createElement('recipe-card', recipes[i]);
-  //  //newRec.data = recipes[i];
-  //  console.log(newRec);
-  //  console.log(typeof newRec);
-  //  mainReference.appendChild(newRec);
-  //}
-  let newRec = document.createElement('recipe-card');
-  console.log(typeof recipes[0]);
-  
-  mainReference.appendChild(newRec);
-  console.log(recipes);
-  console.log(recipes.length);
+  for (let i = 0; i < recipes.length; i++) {
+    let newRec = document.createElement('recipe-card');
+    //console.log(recipes[0]);
+    newRec.data = recipes[i];
+    //console.log(newRec);
+    //console.log(typeof newRec);
+    mainReference.appendChild(newRec);
+  }
+
 }
 
 /**

@@ -12,7 +12,7 @@ class RecipeCard extends HTMLElement {
 
     // A2. DONE - Create an <article> element - This will hold our markup once our data is set
     const articleElement = document.createElement('article');
-    // articleElement.setAttribue('class', 'className); // for reference
+    articleElement.setAttribute('class', 'recipeArticle'); // for reference
 
 
     // A3. DONE - Create a style element - This will hold all of the styles for the Web Component
@@ -130,18 +130,39 @@ class RecipeCard extends HTMLElement {
    *                        }
    */
 
-
   set data(data) {
     // If nothing was passed in, return
     if (!data) return;
 
     // A6. TODO - Select the <article> we added to the Shadow DOM in the constructor
-    const articleSelected = this.querySelector('article');
-    // A7. TODO - Set the contents of the <article> with the <article> template given in
+    console.log('want to add this data:');
+    console.log(data);
+
+    const articleSelected = this.shadowRoot.querySelector('article');
+
+
+    // A7. DONE - Set the contents of the <article> with the <article> template given in
     //           cardTemplate.html and the data passed in (You should only have one <article>,
 
-     articleSelected.innerHTML += `{data}`
+     articleSelected.innerHTML += `
 
+      <img src="${data.imgSrc}"
+        alt="${data.imgAlt}">
+      <p class="title">
+        <a href="${data.titleLNK}">${data.titleTXT}</a>
+      </p>
+      <p class="organization">${data.organization}</p>
+      <div class="rating">
+        <span>${data.rating}</span>
+        <img src="/assets/images/icons/${data.rating}-star.svg" alt="${data.rating} stars">
+        <span>(${data.numRatings})</span>
+      </div>
+      <time>${data.lengthTime} min</time>
+      <p class="ingredients">${data.ingredients}</p>
+
+      `;
+
+// example:
 //   articleSelected.innerHTML += `
 //    <img src="https://link-to-article.com/recipe-thumbnail.jpg"
 //      alt="Recipe Title">
