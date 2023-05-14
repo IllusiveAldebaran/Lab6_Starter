@@ -21,9 +21,12 @@ function init() {
  * @returns {Array<Object>} An array of recipes found in localStorage
  */
 function getRecipesFromStorage() {
-  // A9. TODO - Complete the functionality as described in this function
+  // A9. DONE - Complete the functionality as described in this function
   //           header. It is possible in only a single line, but should
   //           be no more than a few lines.
+
+  //console.log(localStorage.getItem('recipes')); // for debugging
+  return localStorage.getItem('recipes', JSON.stringify(recipes));
 }
 
 /**
@@ -34,11 +37,27 @@ function getRecipesFromStorage() {
  * @param {Array<Object>} recipes An array of recipes
  */
 function addRecipesToDocument(recipes) {
-  // A10. TODO - Get a reference to the <main> element
-  // A11. TODO - Loop through each of the recipes in the passed in array,
+  // A10. DONE - Get a reference to the <main> element
+  // A11. DONE - Loop through each of the recipes in the passed in array,
   //            create a <recipe-card> element for each one, and populate
   //            each <recipe-card> with that recipe data using element.data = ...
   //            Append each element to <main>
+
+  const mainReference = document.querySelector('main');
+
+  //for (let i = 0; i < recipes.length; i++) {
+  //  let newRec = document.createElement('recipe-card', recipes[i]);
+  //  //newRec.data = recipes[i];
+  //  console.log(newRec);
+  //  console.log(typeof newRec);
+  //  mainReference.appendChild(newRec);
+  //}
+  let newRec = document.createElement('recipe-card');
+  console.log(typeof recipes[0]);
+  
+  mainReference.appendChild(newRec);
+  console.log(recipes);
+  console.log(recipes.length);
 }
 
 /**
