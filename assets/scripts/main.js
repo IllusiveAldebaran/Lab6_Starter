@@ -26,7 +26,12 @@ function getRecipesFromStorage() {
   //           be no more than a few lines.
 
   //console.log(localStorage.getItem('recipes')); // for debugging
-  return localStorage.getItem('recipes', JSON.stringify(recipes));
+  const recipesButStringArray = localStorage.getItem('recipes');
+  const recipes = JSON.parse(recipesButStringArray);
+
+  console.log(recipes);
+
+  return recipes;
 }
 
 /**
