@@ -51,6 +51,7 @@ function addRecipesToDocument(recipes) {
   for (let i = 0; i < recipes.length; i++) {
     let newRec = document.createElement('recipe-card');
     newRec.data = recipes[i];
+    console.log(recipes[i]);
     mainReference.appendChild(newRec);
   }
 
